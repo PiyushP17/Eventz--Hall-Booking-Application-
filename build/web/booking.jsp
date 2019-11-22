@@ -83,29 +83,19 @@
             <h4 style="color:brown" id="passendresult">
                 Change Password here
             </h4>
-             <form name='chpass' action="UpdatePass" method="post" style='display:inline;' onsubmit='return validate();'>
+             <form action="UpdatePass" method="post" style='display:inline;'>
             Old Password <input type="password" name='opass' id="oldpass" class="form-control"/><br/>
             <!--<br/>
             Password : <input type="password" id="updatePassword" class="form-control"/>
             <br/>-->
             New Password<input type="password" name='npass' id="newpass" class="form-control"/>
             <br/>
-            Confirm New Password<input type="password" name='cnpass' id="cnewpass" class="form-control"/>
+            Confirm New Password<input type="password" name='cnpass'id="cnewpass" class="form-control"/>
             <br/>
             <input type="submit" style='display:inline;' value="Change Password" class="btn btn-success" id="btnUPass">
              </form>
              <button onclick="closeit('upass_fix_div')" style='display:inline;' class="btn btn-danger" id="btnClose">Close</button>
-             <script>
-                 function validate()
-                 {
-                     if(document.forms["chpass"]["npass"].value !== document.forms["chpass"]["cnpass"].value) {
-                        alert("New Password and Confirm New Password do not match");
-                        document.getElementById("cnewpass").focus();
-                        return false;
-                     }
-                     return true;
-                 }
-             </script>
+             
          </div>
         </div>
       <div class="fixed_div" id="update_fix_div">

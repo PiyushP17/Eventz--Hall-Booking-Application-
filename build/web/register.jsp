@@ -20,7 +20,7 @@
    <body>
       <div id="login-page">
       <div class="container">
-          <form name="signup" class="form-login" action="SignUp" method="post">
+          <form name="signup" class="form-login" action="SignUp" method="post" onsubmit="return validate();">
       <h2 class="form-login-heading">Sign Up Now</h2>
       <div class="login-wrap">
          <input type="text" name="username" class="form-control" placeholder="User ID" autofocus required>
@@ -29,9 +29,9 @@
          <br>
          <input type="password" name="password" class="form-control" placeholder="Password" required>
          <br>
-         <input type="password" id='cpass' name="cpassword" class="form-control" placeholder="Retype Password" required>
+         <input type="password" name="cpassword" class="form-control" placeholder="Retype Password" required>
          <br>
-         <select name="secque" class="form-control" onchange='validate();' autofocus/>
+         <select name="secque" class="form-control"  autofocus/>
                       <option disabled selected hidden>--Choose Security Question--</option>
                       <option>What is your mother's maiden name?</option>
                       <option>What is your birth place?</option>
@@ -41,15 +41,6 @@
          <br>
          <input type="text" name="answer" class="form-control" placeholder="Answer" autofocus>
          <br>
-         <script>
-         function validate()
-         {
-             if(document.forms["signup"]["password"].value !== document.forms["signup"]["cpassword"].value) {
-                 alert("Password and Confirm Password do not match");
-                 document.getElementById("cpass").focus();
-             }
-         }
-         </script>
          <button class="btn btn-theme btn-block" name="submit_btn" type="submit"><i class="fa fa-lock"></i> SIGN UP</button>
          <hr>
          <div class="registration">
@@ -67,6 +58,16 @@
       <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
       <script>
          $.backstretch("resources/hallimg2.jpg", {speed: 500});
+         function validate()
+         {
+             re = /^\w+$/;
+             if(!re.test(form.username.value)) {
+                 alert("Error: Username must contain only letters, numbers and underscores!");
+                 form.username.focus();
+                 return false;
+             }
+             return true
+         }
       </script>
    </body>
 </html>
